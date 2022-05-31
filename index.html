@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerreiros Z</title>
+
+    <!-- Aqui colocamos o link para o arquivo de estilização-->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <!-- Nosso cabeçalho -->
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo">Dragon ball Z</h1>
+
+            <ul class="navBar">
+                <li id="aqui">Inicio</li>
+                <li> <a href="ranking.html">Ranking</a> </li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Começo do Banner -->
+
+    <div class="banner" style="background-image:url('https://nerdhits.com.br/wp-content/uploads/2022/01/raditz.jpg');">
+        <div class="container">
+            <span ></span>
+            <div id="intro">
+                <h1>Vamos descobrir qual o seu nivel de Sayajin pelo seu conhecimento ?</h1>
+                Qual seu nome Sayajin ?: <input id="nome_SJ">
+                <button onclick="confirmar()">Confirmar</button>
+                
+            </div>
+        
+            <div id="fase1" style="display: none; height: 550px; width: 3000px; background-image:url('https://www.einerd.com.br/wp-content/uploads/2021/02/Esferas-do-Dragao-Estrelas-Negras.jpg') ;" >
+                
+                <h3>Quantas esferas do dragão são necessarias pra realizar 1 desejo ?</h3>
+                <button onclick="f1_8()">8</button>
+                <button onclick="f1_12()">12</button>
+                <button onclick="f1_7()">7</button>
+                <button onclick="f1_10()">10</button>
+            </div>
+        
+            <div id="fase2" style="display: none; background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1dcDQvMNZIDHscjaQIxFT4Ub5I2rhJBtTXg&usqp=CAU') ;">
+                <h3>Qual o nome sayajin do Goku ?</h3>
+                <button onclick="f2_1()">Kogu</button>
+                <button onclick="f2_2()">Coabe</button>
+                <button onclick="f2_3()">Bardok</button>
+                <button onclick="f2_4()">Kakaroto</button>
+            </div>
+        
+            <div id="fase3"style="display: none;">
+                <img src="https://static.wikia.nocookie.net/tkoc/images/2/26/Potara.png/revision/latest?cb=20181204060451&path-prefix=pt-br">
+                <h3>Qual o nome da fusão Potara de Goku e Vegetta ?</h3>
+                <button onclick="f3_1()">Vegeko</button>
+                <button onclick="f3_2()">Vegetto</button>
+                <button onclick="f3_3()">Gottove</button>
+                <button onclick="f3_4()">Gogetta</button>
+            </div>
+            
+            <div id="fase4"style="display: none;">
+                <img src="https://www.desenharbem.com.br/wp-content/uploads/2021/01/transformacao-oozaru.jpg">
+                <h3>Qual o nome do rei dos sayajins ?</h3>
+                <button onclick="f4_1()">Goku</button>
+                <button onclick="f4_2()">Rei Gohan</button>
+                <button onclick="f4_3()">Rei Bardok</button>
+                <button onclick="f4_4()">Rei Vegetta</button>
+            </div>
+            
+            <div id="fase5"style="display: none;">
+                <img src="http://db-rpg-db.weebly.com/uploads/8/5/7/6/8576819/7294283.jpg" >
+                <h3>Qual o nome do golpe preferido de Goku ?</h3>
+                <button onclick="f5_1()">Kamehameha</button>
+                <button onclick="f5_2()">Teletransporte</button>
+                <button onclick="f5_3()">Kienzan</button>
+                <button onclick="f5_4()">Big Bang</button>
+            </div>
+            
+            <div id="fase6"style="display: none;">
+                <img src="https://www.einerd.com.br/wp-content/uploads/2018/11/dbsbroly.jpg" >
+                <h3>Quem foi o primeiro super sayajin ?</h3>
+                <button onclick="f6_1()">Goku</button>
+                <button onclick="f6_2()">Bardok</button>
+                <button onclick="f6_3()">Trunks</button>
+                <button onclick="f6_4()">Rei Vegetta</button>
+            </div>
+            
+            <div id="fase7"style="display: none;">
+                <img src="https://i.stack.imgur.com/qau5J.jpg" >
+                <h3>Quantos super sayajins existem ?</h3>
+                <button onclick="f7_1()">2</button>
+                <button onclick="f7_2()">4</button>
+                <button onclick="f7_3()">5</button>
+                <button onclick="f7_4()">7</button>
+            </div>
+        
+            <div id="fim" style="display: none;">
+                <h1>SEU NIVEL DE TRANSFORMAÇÃO É...</h1>
+                <button onclick="resultado()">Resultado</button>
+                <img id="duvida" style="display:block;" src="https://pbs.twimg.com/media/DhXFHnhX4AAaqg0.jpg" alt="">
+                <div id="base" style="display: none;">
+                    <h2 >Forma Base</h2>
+                    Seu poder está abaixo de 8Mil, continue treinando!
+                    <img src="https://i.pinimg.com/474x/ba/12/76/ba127684cab4cf7fd8f3089ccca3fa8a.jpg">
+                </div>
+            
+                <div id="ssj1" style="display: none;">
+                    <h2>SSJ1</h2>
+                    Um(a) guerreiro(a) em potencial !!
+                    <img src="http://3.bp.blogspot.com/-5AbkGWTrEe8/VZCjOCE3XfI/AAAAAAAAANQ/ecD27-XoGmA/s1600/GokuAndGohanEATimeChamber.png">
+                </div>
+            
+                <div id="ssj2"style="display: none;">
+                    <h2>SSJ2</h2>
+                    Muito Bom!! Seu poder é incrivel
+                    <img src="https://criticalhits.com.br/wp-content/uploads/2020/10/DBnQz1XUQAEAgdT.jpg">
+                </div>
+            
+                <div id="ssj3"style="display: none;">
+                    <h2>SSJ3</h2>
+                    Um poder gigante, apenas os mais talentosos são capazes de chegar até aqui!!!
+                    <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/10/goku-super-saiyan-3.jpg?q=50&fit=contain&w=943&h=472&dpr=1.5">
+                </div>
+            
+                <div id="ssj4"style="display: none;">
+                    <h2>SSJ4</h2>
+                  Parabens!!!  Seu poder é inigualável, até mesmo os deuses temem você!!!!!! 
+                    <img src="https://i.pinimg.com/originals/d4/76/ac/d476ac1e36d90367446ef9861e7ed9cd.jpg">
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <!-- Fim do Banner -->
+
+    <!-- Começo do Social -->
+
+    
+    <!-- Fim da Social -->
+
+</body>
+
+</html>
+<script>
+    var acertos = 0;
+    
+function confirmar() {
+    var guerreiro = nome_SJ.value;
+    intro.style.display = 'none';
+    fase1.style.display = 'block';
+    body.style.display = 'none';
+}
+
+// fase1
+function f1_8() {
+    fase1.style.display = 'none';
+    fase2.style.display = 'block';
+    
+}
+function f1_12() {
+    fase1.style.display = 'none';
+    fase2.style.display = 'block';
+    
+}
+function f1_7() {
+    fase1.style.display = 'none';
+    fase2.style.display = 'block';
+    acertos ++;
+}
+function f1_10() {
+    fase1.style.display = 'none';
+    fase2.style.display = 'block';
+    
+}
+// fase2
+
+function f2_1() {
+    fase2.style.display = 'none';
+    fase3.style.display = 'block';
+    
+}
+function f2_2() {
+    fase2.style.display = 'none';
+    fase3.style.display = 'block';
+    
+}
+function f2_3() {
+    fase2.style.display = 'none';
+    fase3.style.display = 'block';
+    
+}
+function f2_4() {
+    fase2.style.display = 'none';
+    fase3.style.display = 'block';
+    acertos ++;
+}
+// fase 3
+
+function f3_1() {
+    fase3.style.display = 'none';
+    fase4.style.display = 'block';
+    
+}
+function f3_2() {
+    fase3.style.display = 'none';
+    fase4.style.display = 'block';
+    acertos ++;
+}
+function f3_3() {
+    fase3.style.display = 'none';
+    fase4.style.display = 'block';
+    
+}
+function f3_4() {
+    fase3.style.display = 'none';
+    fase4.style.display = 'block';
+    
+}
+// fase 4
+
+function f4_1() {
+    fase4.style.display = 'none';
+    fase5.style.display = 'block';
+    
+}
+function f4_2() {
+    fase4.style.display = 'none';
+    fase5.style.display = 'block';
+    
+}
+function f4_3() {
+    fase4.style.display = 'none';
+    fase5.style.display = 'block';
+    
+}
+function f4_4() {
+    fase4.style.display = 'none';
+    fase5.style.display = 'block';
+    acertos ++;
+}
+//fase 5
+
+function f5_1() {
+    fase5.style.display = 'none';
+    fase6.style.display = 'block';
+    acertos ++;
+}
+function f5_2() {
+    fase5.style.display = 'none';
+    fase6.style.display = 'block';
+    
+}
+function f5_3() {
+    fase5.style.display = 'none';
+    fase6.style.display = 'block';
+    
+}
+function f5_4() {
+    fase5.style.display = 'none';
+    fase6.style.display = 'block';
+    
+}
+//fase 6
+
+function f6_1() {
+    fase6.style.display = 'none';
+    fase7.style.display = 'block';
+    
+}
+function f6_2() {
+    fase6.style.display = 'none';
+    fase7.style.display = 'block';
+    acertos ++;
+}
+function f6_3() {
+    fase6.style.display = 'none';
+    fase7.style.display = 'block';
+    
+}
+function f6_4() {
+    fase6.style.display = 'none';
+    fase7.style.display = 'block';
+    
+}
+//fase final
+
+function f7_1() {
+    fase7.style.display = 'none';
+    fim.style.display = 'block'
+}
+function f7_2() {
+    fase7.style.display = 'none';
+    fim.style.display = 'block'
+}
+function f7_3() {
+    fase7.style.display = 'none';
+    acertos ++;
+    fim.style.display = 'block'
+}
+function f7_4() {
+    fase7.style.display = 'none';
+    fim.style.display = 'block'
+}
+function resultado() {
+    var n_base = acertos >= 0 && acertos <= 1;
+    var n_ssj1 = acertos >= 2 && acertos <= 3;
+    var n_ssj2 = acertos >= 4 && acertos <= 5;
+    var n_ssj3 = acertos >= 6 && acertos < 7;
+    var n_ssj4 = acertos > 6;
+    duvida.style.display = 'none';
+    if (n_base) {
+        base.style.display = 'block';
+    }
+    else if (n_ssj1) {
+        ssj1.style.display = 'block';
+    }
+    else if (n_ssj2) {
+        ssj2.style.display = 'block';
+    }
+    else if (n_ssj3) {
+        ssj3.style.display = 'block';
+    }
+    else if (n_ssj4) {
+        ssj4.style.display = 'block';
+    }
+}
+</script>
