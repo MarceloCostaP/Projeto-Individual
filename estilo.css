@@ -1,6 +1,6 @@
 @font-face{
     font-family: 'Saiyan-Sans';
-     src:url('saiyan_sans/Saiyan-Sans.ttf') format('truetype');
+     src:url('Saiyan-Sans.ttf') format('truetype');
     }
 
 
@@ -9,11 +9,18 @@ body {
     margin: 0;
     background: black;
     font-family: 'Saiyan-Sans';
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
 }
 
 .header{
     border-bottom: 3px solid #1b9c0a;
     font-family: 'Saiyan-Sans';
+    
+}
+
+#button {
+    size: 30px;
 }
 
 .container {
@@ -21,11 +28,13 @@ body {
     margin: auto;
     display: flex;
     font-family: 'Saiyan-Sans';
+    
 }
 
 .header .container{
     justify-content: space-between;
     font-family: 'Saiyan-Sans';
+
 }
 
 .header ul #aqui {
@@ -39,10 +48,11 @@ ul {
 }
 
 .titulo {
-    color: #d3e013;
+    color: #d47011;
     width: fit-content;
     font-weight: 500;
     font-family: 'Saiyan-Sans';
+
 }
 
 .navBar {
@@ -53,6 +63,7 @@ ul {
     justify-content: space-evenly;
     align-items: center;
     font-family: 'Saiyan-Sans';
+
 }
 
 /* Fim do cabeçalho */
@@ -62,15 +73,23 @@ ul {
 .banner {
     height: 550px;
     background-size: 100%;
-    color: #f1f11e;
+    color: #eef114;
     display: flex;
     font-family: 'Saiyan-Sans';
+
 }
 
 .banner .container p span {
     font-weight: 1000;
     font-family: 'Saiyan-Sans';
 }
+
+.container {
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+
+}
+
 
 .banner .container {
     font-size: 36px;
@@ -172,9 +191,10 @@ ul {
 }
 
 a {
-    color: #e3b062;
+    color: #cc7c03;
     text-decoration: none;
     font-family: 'Saiyan-Sans';
+    
 
 }
 
