@@ -33,10 +33,9 @@
 
     <div class="banner" style="display: block;">
         <div class="container">
-            <span style="display:none;"><audio id="abertura" autoplay="autoplay" controls="controls">
-                    <source src="AberturaDBZ.mp3" type="audio/mp3" />
-                    seu navegador não suporta HTML5
-                </audio></span>
+            <audio id="abertura" autoplay="autoplay" controls="controls" style="display:none;">
+                <source src="AberturaDBZ.mp3" type="audio/mp3" />
+            </audio>
             <div id="intro">
                 <h1>Vamos descobrir qual o seu nivel de Sayajin pelo seu conhecimento ?</h1>
                 Qual seu nome Sayajin ?: <input id="nome_SJ">
@@ -159,25 +158,25 @@
 
     function f_musica() {
         if (true) {
-            while (musica == 1) {
-                abertura.innerHTML = 
+            while (musica < 3) {
+                abertura.play();
+                musica++;
             }
         }
         else {
-
+            abertura.pause()
         }
     }
 
 
     function confirmar() {
+        abertura.play();
         var guerreiro = nome_SJ.value;
         intro.style.display = 'none';
         fase1.style.display = 'block';
         body.style.display = 'none';
-
-        musica = 1;
-
         f_musica();
+       
 
     }
 
@@ -337,6 +336,7 @@
         var n_ssj2 = acertos >= 4 && acertos <= 5;
         var n_ssj3 = acertos >= 6 && acertos < 7;
         var n_ssj4 = acertos > 6;
+        abertura.pause();
         duvida.style.display = 'none';
         if (n_base) {
             base.style.display = 'block';
@@ -353,8 +353,6 @@
         else if (n_ssj4) {
             ssj4.style.display = 'block';
         }
-
-        musica = 0;
-        f_musica();
+        
     }
 </script>
