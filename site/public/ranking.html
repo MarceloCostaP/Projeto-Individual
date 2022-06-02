@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guerreiros Z</title>
+
+    <!-- Aqui colocamos o link para o arquivo de estilização-->
+    <link rel="stylesheet" href="css/estilo.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <!-- Nosso cabeçalho -->
+    <div class="header">
+      <div class="container">
+        <h1 class="titulo"><li><a href="index.html">Dragon ball Z</a></li></h1>
+
+        <ul class="navBar">
+          <li><a href="index.html">Home</a></li>
+          <li id="aqui">Ranking</li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- Começo do Banner2 -->
+
+    <div class="banner2">
+      <div class="container2">
+        <div class="podio" >
+            <canvas id="myChart"></canvas>
+          </div>
+          
+      </div>
+    </div>
+
+    <!-- Fim do Banner -->
+  </body>
+  <script>
+    const labels = ["Super Saiajyn 4", "Super Saiajyn 3", "Super Saiajyn 2", "Super Saiajyn", "Forma Base"];
+    var recebeBanco = []; 
+
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "SSJ4",
+          backgroundColor: "#8B0000",
+          borderColor: "rgb(255, 99, 132)",
+          data: [1, 0, 0, 0, 0, 7], //  7 são da label, demais para graficos
+        },
+                {
+          label: "SSJ 3",
+          backgroundColor: "#FFFF00",
+          borderColor: "rgb(255, 99, 132)",
+          data: [0, 3, 0, 0, 0, 7], //  7 são da label, demais para graficos
+        },  
+        {
+          label: "SSJ 2",
+          backgroundColor: "#ADFF2F",
+          borderColor: "rgb(255, 99, 132)",
+          data: [0, 0, 6, 0, 0, 7], //  7 são da label, demais para graficos
+        },  
+        {
+          label: "SSJ 1",
+          backgroundColor: "#DAA520",
+          borderColor: "rgb(255, 99, 132)",
+          data: [0, 0, 0, 4, 0, 7], //  7 são da label, demais para graficos
+        },  
+        {
+          label: "Forma Base",
+          backgroundColor: "#1C1C1C",
+          borderColor: "rgb(255, 99, 132)",
+          data: [0, 0, 0, 0, 2, 7], //  7 são da label, demais para graficos
+        },  
+      ],
+    };
+
+    const config = {
+      type: "bar",
+      data: data,
+      options: {
+          indexAxis : 'y',
+      }
+    };
+  </script>
+  <script>
+    const myChart = new Chart(document.getElementById("myChart"), config);
+  </script>
+</html>

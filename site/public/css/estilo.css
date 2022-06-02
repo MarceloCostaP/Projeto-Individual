@@ -1,0 +1,300 @@
+@font-face{
+    font-family: 'Saiyan-Sans';
+     src:url('Saiyan-Sans.ttf') format('truetype');
+    }
+
+
+/* Começo do cabeçalho */
+body {
+    margin: 0;
+    background: black;
+    font-family: 'Saiyan-Sans';
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+.header{
+    border-bottom: 3px solid #1b9c0a;
+    font-family: 'Saiyan-Sans';
+    
+}
+
+#button {
+    size: 30px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    font-family: 'Saiyan-Sans';
+    
+}
+
+.header .container{
+    justify-content: space-between;
+    font-family: 'Saiyan-Sans';
+
+}
+
+.header ul #aqui {
+    font-weight: 800;
+    font-family: 'Saiyan-Sans';
+}
+
+ul {
+    color: #e3b062;
+    font-family: 'Saiyan-Sans';
+}
+
+.titulo {
+    color: #d47011;
+    width: fit-content;
+    font-weight: 500;
+    font-family: 'Saiyan-Sans';
+
+}
+
+.navBar {
+    width: 300px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Saiyan-Sans';
+    font-size: 25px;
+
+}
+
+/* Fim do cabeçalho */
+
+/* Começo do Banner */
+
+.banner {
+    height: 550px;
+    background-size: 100%;
+    color: #eef114;
+    display: flex;
+    font-family: 'Saiyan-Sans';
+
+}
+
+.container {
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
+}
+
+.banner .container p span {
+    font-weight: 1000;
+    font-family: 'Saiyan-Sans';
+    
+}
+
+.banner .container {
+    font-size: 36px;
+    justify-content: center;
+    font-family: 'Saiyan-Sans';
+}
+
+.banner .container p{
+    width: 30%;
+    font-family: 'Saiyan-Sans';
+}
+
+.banner2 {
+    background-image: url("https://www.entermydungeon.com.br/wp-content/uploads/2021/03/goku_wallpaper__dbz_kakarot__by_maxiuchiha22_ddcb35z-pre.png");
+    background-size: cover;
+    color: rgb(240, 140, 10);
+    display: flex;
+    font-family: 'Saiyan-Sans';
+}
+
+.banner2 .container2 {
+    font-size: 36px;
+    justify-content: center;
+    width: 85%;
+    height: 85%;
+    font-family: 'Saiyan-Sans';
+}
+
+
+.banner2 .container2 p{
+    font-weight: 1000;
+    width: 30%;
+    font-family: 'Saiyan-Sans';
+}
+
+/* Fim do banner */
+
+/* Começo das divs */
+
+.banner .container .intro{
+ display: flex;
+ flex-direction: column;
+}
+
+.banner .container #teste {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner .container #fase1 {
+    height: 550px;
+    width: 560px;
+}
+
+.banner .container #fim {
+    height: 100%;
+    width: 100%;
+    background-size: cover ;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner .container #base {
+    height: 100%;
+    width: 100%;
+    background-size: cover ;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner .container #ssj1 {
+    height: 100%;
+    width: 100%;
+    background-size: cover ;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner .container #ssj2 {
+    height: 100%;
+    width: 100%;
+    background-size: cover ;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner .container #ssj3 {
+    height: 100%;
+    width: 100%;
+    background-size: cover ;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner .container #ssj4 {
+    height: 100%;
+    width: 100%;
+    background-size: cover ;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fim das divs */
+
+/* Começo d Social */
+.social  {
+    height: 555px;
+    width: 1365px;
+    background-image: url("https://www.einerd.com.br/wp-content/uploads/2019/08/Esferas-do-Drag%C3%A3o-desejos-capa.jpg");
+    display: flex;
+    background-size: cover;
+    font-family: 'Saiyan-Sans';
+}
+.social .container .boxes {
+    display: flex;
+    font-family: 'Saiyan-Sans';
+}
+
+.box img{
+    background-size: cover;
+    background-image: no-repeat;
+    font-family: 'Saiyan-Sans';
+}
+
+.box {
+    height: 100%;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Saiyan-Sans';
+}
+
+/* Final do Social */
+
+/* Começo do Footer */
+
+.footer {
+    background-color: #32b9cd;
+    height: 150px;
+    color: #fff;
+    display: flex;
+    font-size: 15px;
+    font-family: 'Saiyan-Sans';
+}
+
+.footer .container {
+    justify-content: center;
+    font-family: 'Saiyan-Sans';
+}
+
+a {
+    color: #ee422b;
+    text-decoration: none;
+    font-family: 'Saiyan-Sans';
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+
+}
+
+.banner .container .card {
+    background-color: beige;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: palevioletred;
+    align-items: center;
+    border-radius: 4px;
+    font-family: 'Saiyan-Sans';
+
+}
+
+.card h1 {
+    font-size: 30px;
+    font-family: 'Saiyan-Sans';
+
+}
+
+.card h4 {
+    font-size: 16px;
+    font-family: 'Saiyan-Sans';
+
+}
+
+.card input {
+    border: palevioletred solid 2px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Saiyan-Sans';
+
+}
+
+.card button {
+    width: 100px;
+    height: 50px;
+    background-color: palevioletred;
+    margin-top: 25px;
+    font: 700 20px monospace;
+    border: 0;
+    border-radius: 4px; 
+    color: #fff;
+    cursor: pointer;
+}
