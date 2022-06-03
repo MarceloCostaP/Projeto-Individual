@@ -59,7 +59,7 @@
                 <button onclick="f2_1()">Kogu</button>
                 <button onclick="f2_2()">Coabe</button>
                 <button onclick="f2_3()">Bardok</button>
-                <button onclick="f2_4()">Kakaroto</button>
+                <button onclick="f2_4()">Kakarotto</button>
             </div>
 
             <div id="fase3" style="display: none;">
@@ -331,6 +331,13 @@
         var n_ssj2 = acertos >= 4 && acertos <= 5;
         var n_ssj3 = acertos >= 6 && acertos < 7;
         var n_ssj4 = acertos > 6;
+        fetch(`medidas/treinamento/${acertos}`,{method:'GET',headers:{'Content-Type': 'application/json'}}).then(function (response) {
+            if (response.ok) {
+                response.json().then(json => {
+                    console.log(json)
+                })
+            }
+        })
         abertura.pause();
         if (n_base) {
             fim.style.display = 'none';

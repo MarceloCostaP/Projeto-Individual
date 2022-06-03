@@ -4,11 +4,11 @@ function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
 
-    var idAquario = req.params.idAquario;
+    var idUsuario = req.parents.idUsuario;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas(limite_linhas,idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -24,11 +24,27 @@ function buscarUltimasMedidas(req, res) {
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idAquario = req.params.idAquario;
-
+    var idUsuario = req.parents.idUsuario;
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function treinamento(req, res) {
+    var pontuacao = req.parents.pontuacao;
+    console.log(`Recuperando medidas em tempo real`);
+
+    medidaModel.buscarMedidasEmTempoReal(idUsuario,pontuacao).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -43,6 +59,6 @@ function buscarMedidasEmTempoReal(req, res) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
+    buscarMedidasEmTempoReal,
+    treinamento
 }
