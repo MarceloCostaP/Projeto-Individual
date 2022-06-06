@@ -109,31 +109,36 @@
                 <h1>SEU NIVEL DE TRANSFORMAÇÃO É...</h1>
                 <button onclick="resultado()">Resultado</button>
             </div>
-            <div id="base" style="display: none; background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnbRtOjc38xTHPe4BxtjM4mwYYIq7bdRw2Aw&usqp=CAU');">
+            <div id="base"
+                style="display: none; background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnbRtOjc38xTHPe4BxtjM4mwYYIq7bdRw2Aw&usqp=CAU');">
 
                 <h2>Forma Base</h2>
                 Seu poder está abaixo de 8Mil, continue treinando!
             </div>
 
-            <div id="ssj1" style="display: none; background-image: url('https://sm.ign.com/ign_br/screenshot/default/goku-super-sayan_j3xm.jpg');">
+            <div id="ssj1"
+                style="display: none; background-image: url('https://sm.ign.com/ign_br/screenshot/default/goku-super-sayan_j3xm.jpg');">
 
                 <h2>SSJ1</h2>
                 Um(a) guerreiro(a) em potencial !!
             </div>
 
-            <div id="ssj2" style="display: none; background-image: url('https://criticalhits.com.br/wp-content/uploads/2020/10/DBnQz1XUQAEAgdT.jpg');">
+            <div id="ssj2"
+                style="display: none; background-image: url('https://criticalhits.com.br/wp-content/uploads/2020/10/DBnQz1XUQAEAgdT.jpg');">
 
                 <h2>SSJ2</h2>
                 Muito Bom!! Seu poder é incrivel
             </div>
 
-            <div id="ssj3" style="display: none; background-image: url('https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/10/goku-super-saiyan-3.jpg?q=50&fit=contain&w=943&h=472&dpr=1.5');">
+            <div id="ssj3"
+                style="display: none; background-image: url('https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/10/goku-super-saiyan-3.jpg?q=50&fit=contain&w=943&h=472&dpr=1.5');">
 
                 <h2>SSJ3</h2>
                 Um poder gigante, apenas os mais talentosos são capazes de chegar até aqui!!!
             </div>
 
-            <div id="ssj4" style="display: none; background-image: url('https://www.comboinfinito.com.br/principal/wp-content/uploads/2017/10/super-saiyajin-4.jpg;)">
+            <div id="ssj4"
+                style="display: none; background-image: url('https://www.comboinfinito.com.br/principal/wp-content/uploads/2017/10/super-saiyajin-4.jpg;')">
 
                 <h2>SSJ4</h2>
                 Parabens!!! Seu poder é inigualável, até mesmo os deuses temem você!!!!!!
@@ -145,34 +150,17 @@
 
     <!-- Fim do Banner -->
 
-    <!-- Começo do Social -->
-
-
-    <!-- Fim da Social -->
-
 </body>
 
 </html>
 <script>
     var acertos = 0;
-    var musica = 0;
-    var condicao = true;
-
+    var nome;
     function confirmar() {
         abertura.play();
-        var guerreiro = nome_SJ.value;
         intro.style.display = 'none';
         fase1.style.display = 'block';
-        if (condicao == true) {
-            while (musica < 3) {
-                abertura.repeat();
-                musica++;
-            }
-        }
-        else {
-            abertura.pause()
-        }
-
+        nome = nome_SJ.value;
     }
 
     // fase1
@@ -310,20 +298,20 @@
 
     function f7_1() {
         fase7.style.display = 'none';
-        fim.style.display = 'block'
+        fim.style.display = 'block';
     }
     function f7_2() {
         fase7.style.display = 'none';
-        fim.style.display = 'block'
+        fim.style.display = 'block';
     }
     function f7_3() {
         fase7.style.display = 'none';
         acertos++;
-        fim.style.display = 'block'
+        fim.style.display = 'block';
     }
     function f7_4() {
         fase7.style.display = 'none';
-        fim.style.display = 'block'
+        fim.style.display = 'block';
     }
     function resultado() {
         var n_base = acertos >= 0 && acertos <= 1;
@@ -331,13 +319,26 @@
         var n_ssj2 = acertos >= 4 && acertos <= 5;
         var n_ssj3 = acertos >= 6 && acertos < 7;
         var n_ssj4 = acertos > 6;
-        fetch(`medidas/treinamento/${acertos}`,{method:'GET',headers:{'Content-Type': 'application/json'}}).then(function (response) {
+
+        fetch(`/medidas/treinamento/`, { 
+            method: 'POST', 
+            headers: { 
+                'Content-Type': 'application/json' 
+            },             
+            body: JSON.stringify({
+                nomeServer: nome,
+                acertosServer: acertos
+            }) 
+        }).then(function (response) {
             if (response.ok) {
                 response.json().then(json => {
                     console.log(json)
                 })
             }
-        })
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+        
         abertura.pause();
         if (n_base) {
             fim.style.display = 'none';
@@ -359,6 +360,6 @@
             fim.style.display = 'none';
             ssj4.style.display = 'block';
         }
-
     }
+
 </script>

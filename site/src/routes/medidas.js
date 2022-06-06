@@ -11,7 +11,7 @@ router.get("/tempo-real/:idUsuario", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
-router.get("treinamento/:pontuacao", function (req, res) {
+router.post("/treinamento", function (req, res) {
     medidaController.treinamento(req, res);
 })
 

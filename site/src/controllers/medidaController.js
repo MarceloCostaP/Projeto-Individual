@@ -41,10 +41,22 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 function treinamento(req, res) {
-    var pontuacao = req.parents.pontuacao;
-    console.log(`Recuperando medidas em tempo real`);
+    var nome = req.body.nomeServer;
+    var acertos = req.body.acertosServer;
 
-    medidaModel.buscarMedidasEmTempoReal(idUsuario,pontuacao).then(function (resultado) {
+    medidaModel.treinamento(nome).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+    medidaModel.tabela(acertos).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

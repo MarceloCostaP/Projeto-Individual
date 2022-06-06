@@ -225,8 +225,21 @@ ul {
     flex-direction: column;
     align-items: center;
     font-family: 'Saiyan-Sans';
+    color: #eef114;
+    font-size: 30px;
 }
 
+.box2 {
+    height: 100%;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Saiyan-Sans';
+    color: #e43018;
+    font-size: 30px;
+}
 /* Final do Social */
 
 /* Começo do Footer */

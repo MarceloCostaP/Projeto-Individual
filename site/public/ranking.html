@@ -1,93 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guerreiros Z</title>
 
-    <!-- Aqui colocamos o link para o arquivo de estilização-->
-    <link rel="stylesheet" href="css/estilo.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guerreiros Z</title>
 
-  <body>
-    <!-- Nosso cabeçalho -->
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo"><li><a href="index.html">Dragon ball Z</a></li></h1>
+  <!-- Aqui colocamos o link para o arquivo de estilização-->
+  <link rel="stylesheet" href="css/estilo.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
-        <ul class="navBar">
-          <li><a href="index.html">Home</a></li>
-          <li id="aqui">Ranking</li>
-          <li><a href="sobre.html">Sobre</a></li>
-        </ul>
+<body>
+  <!-- Nosso cabeçalho -->
+  <div class="header">
+    <div class="container">
+      <h1 class="titulo">
+        <li><a href="index.html">Dragon ball Z</a></li>
+      </h1>
 
-      </div>
+      <ul class="navBar">
+        <li><a href="index.html">Home</a></li>
+        <li id="aqui">Ranking</li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+
     </div>
+  </div>
 
-    <!-- Começo do Banner2 -->
+  <!-- Começo do Banner2 -->
 
-    <div class="banner2">
-      <div class="container2">
-        <div class="podio" >
-            <canvas id="myChart"></canvas>
-          </div>
-          
+  <div class="banner2">
+    <div class="container2">
+      <div class="podio">
+        <canvas id="myChart"></canvas>
       </div>
+
     </div>
+  </div>
 
-    <!-- Fim do Banner -->
-  </body>
-  <script>
-    const labels = ["Super Saiajyn 4", "Super Saiajyn 3", "Super Saiajyn 2", "Super Saiajyn", "Forma Base"];
-    var recebeBanco = []; 
+  <!-- Fim do Banner -->
+</body>
+<script>
+  const labels = ["Super Saiajyn 4", "Super Saiajyn 3", "Super Saiajyn 2", "Super Saiajyn", "Forma Base"];
+  var recebeBanco = [];
 
-    const data = {
-      labels: labels,
-      datasets: [
-        {
-          label: "SSJ4",
-          backgroundColor: "#8B0000",
-          borderColor: "rgb(255, 99, 132)",
-          data: recebeBanco //  7 são da label, demais para graficos
-        },
-                {
-          label: "SSJ 3",
-          backgroundColor: "#FFFF00",
-          borderColor: "rgb(255, 99, 132)",
-          data: [0, 3, 0, 0, 0, 7], //  7 são da label, demais para graficos
-        },  
-        {
-          label: "SSJ 2",
-          backgroundColor: "#ADFF2F",
-          borderColor: "rgb(255, 99, 132)",
-          data: [0, 0, 6, 0, 0, 7], //  7 são da label, demais para graficos
-        },  
-        {
-          label: "SSJ 1",
-          backgroundColor: "#DAA520",
-          borderColor: "rgb(255, 99, 132)",
-          data: [0, 0, 0, 4, 0, 7], //  7 são da label, demais para graficos
-        },  
-        {
-          label: "Forma Base",
-          backgroundColor: "#1C1C1C",
-          borderColor: "rgb(255, 99, 132)",
-          data: [0, 0, 0, 0, 2, 7], //  7 são da label, demais para graficos
-        },  
-      ],
-    };
 
-    const config = {
-      type: "bar",
-      data: data,
-      options: {
-          indexAxis : 'y',
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "SSJ4",
+        backgroundColor: "#FF0000",
+        borderColor: "rgb(255, 99, 132)",
+        data: recebeBanco //  7 são da label, demais para graficos
+      },
+      {
+        label: "SSJ 3",
+        backgroundColor: "#00FF00",
+        borderColor: "rgb(255, 99, 132)",
+        data: recebeBanco //  7 são da label, demais para graficos
+      },
+      {
+        label: "SSJ 2",
+        backgroundColor: "#00008B",
+        borderColor: "rgb(255, 99, 132)",
+        data: recebeBanco //  7 são da label, demais para graficos
+      },
+      {
+        label: "SSJ 1",
+        backgroundColor: "#FFFF00",
+        borderColor: "rgb(255, 99, 132)",
+        data: recebeBanco //  7 são da label, demais para graficos
+      },
+      {
+        label: "Forma Base",
+        backgroundColor: "#1C1C1C",
+        borderColor: "rgb(255, 99, 132)",
+        data: recebeBanco //  7 são da label, demais para graficos
+      },
+    ],
+  };
+
+  const config = {
+    type: "bar",
+    data: data,
+    options: {
+      indexAxis: 'y',
+    }
+  };
+
+  function obterDadosGrafico(pontuacao) {
+
+
+
+    fetch(`/medidas/ultimas/}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          resposta.reverse();
+
+          plotarGrafico(resposta);
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
       }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+      
+      var n_base = acertos >= 0 && acertos <= 1;
+        var n_ssj1 = acertos >= 2 && acertos <= 3;
+        var n_ssj2 = acertos >= 4 && acertos <= 5;
+        var n_ssj3 = acertos >= 6 && acertos < 7;
+        var n_ssj4 = acertos > 6;
+
+  }
+
+  // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+  // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+  // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+  function plotarGrafico(formabase) {
+    console.log('iniciando plotagem do gráfico...');
+
+
+    var dados = {
+      labels: [],
+      datasets: []
     };
-  </script>
-  <script>
-    const myChart = new Chart(document.getElementById("myChart"), config);
-  </script>
+  }
+
+  console.log(JSON.stringify(dados));
+
+  var ctx = canvas_grafico.getContext('2d');
+  window.grafico_linha = Chart.Line(ctx, {
+    data: dados
+  })
+</script>
+<script>
+  const myChart = new Chart(document.getElementById("myChart"), config);
+</script>
+
 </html>

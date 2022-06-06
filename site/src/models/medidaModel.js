@@ -47,47 +47,48 @@ function buscarMedidasEmTempoReal(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
-function treinamento(pontuacao) {
-
+function treinamento(nome) {
+    console.log("Entrei no treinamento")
     instrucaoSql = ''
-
-    var nome;
-
-    if (pontuacao >= 0 && pontuacao <= 1) {
-        nome = 'forma base'
-    }
-    else if (pontuacao >= 2 && pontuacao <= 3) {
-        nome = 'SSJ1'
-    }
-    
-    else if (pontuacao >= 2 && pontuacao <= 3) {
-        nome = 'SSJ2'
-    }
-    
-    else if (pontuacao >= 2 && pontuacao <= 3) {
-        nome = 'SSJ3'
-    }
-    
-    else if (pontuacao >= 2 && pontuacao <= 3) {
-        nome = 'SSJ4'
-    }
-
-    if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = ''
-    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `insert into usuario values (null,${pontuacao},${nome})`
-    } else {
-        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-        return
-    }
+        instrucaoSql = `insert into usuario values (null,'${nome}')`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+function tabela(acertos) {
+    console.log(acertos);
+    var pontuacao = '';
+
+    if (acertos >= 0 && acertos <= 1) {
+        pontuacao = 'forma base'
+    }
+    else if (acertos >= 2 && acertos <= 3) {
+        pontuacao = 'SSJ1'
+    }
+    
+    else if (acertos >= 2 && acertos <= 3) {
+        pontuacao = 'SSJ2'
+    }
+    
+    else if (acertos >= 2 && acertos <= 3) {
+        pontuacao = 'SSJ3'
+    }
+    
+    else if (acertos >= 2 && acertos <= 3) {
+        pontuacao = 'SSJ4'
+    }
+    instrucaoSql = ''
+        instrucaoSql = `insert into Ranking(pontuacao) values ('${pontuacao}')`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
 
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    treinamento
+    treinamento,
+    tabela
 }
