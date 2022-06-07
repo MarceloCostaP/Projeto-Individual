@@ -1,6 +1,7 @@
 var mysql = require("mysql2");
 var sql = require('mssql');
 
+// process.env.AMBIENTE_PROCESSO = "desenvolvimento";
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
     server: "XXXXX",
@@ -20,7 +21,7 @@ var sqlServerConfig = {
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
     host: "localhost",
-    port: "3306",
+    // port: "3333",
     database: "DBZ",
     user: "aluno",
     password: "sptech",

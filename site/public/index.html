@@ -320,14 +320,27 @@
         var n_ssj3 = acertos >= 6 && acertos < 7;
         var n_ssj4 = acertos > 6;
 
-        fetch(`/medidas/treinamento/`, { 
+        var rank = ''
+        if(n_base) {
+            rank = 'Forma Base'
+        } else if (n_ssj1){
+            rank = 'SSJ1'
+        } else if (n_ssj2){
+            rank = 'SSJ2'
+        } else if (n_ssj3){
+            rank = 'SSJ3'
+        } else if (n_ssj4){
+            rank = 'SSJ4'
+        }
+
+        fetch(`/usuarios/cadastrar/`, { 
             method: 'POST', 
             headers: { 
                 'Content-Type': 'application/json' 
             },             
             body: JSON.stringify({
                 nomeServer: nome,
-                acertosServer: acertos
+                acertosServer: rank
             }) 
         }).then(function (response) {
             if (response.ok) {

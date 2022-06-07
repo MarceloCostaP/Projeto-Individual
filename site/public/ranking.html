@@ -34,7 +34,7 @@
   <div class="banner2">
     <div class="container2">
       <div class="podio">
-        <canvas id="myChart"></canvas>
+        <canvas id="canvas_grafico"></canvas>
       </div>
 
     </div>
@@ -46,31 +46,31 @@
   const labels = ["Super Saiajyn 4", "Super Saiajyn 3", "Super Saiajyn 2", "Super Saiajyn", "Forma Base"];
   var recebeBanco = [];
 
-
+  obterDadosGrafico();
 
   const data = {
     labels: labels,
     datasets: [
       {
-        label: "SSJ4",
+        label: "Super Saiajyn 4",
         backgroundColor: "#FF0000",
         borderColor: "rgb(255, 99, 132)",
         data: recebeBanco //  7 são da label, demais para graficos
       },
       {
-        label: "SSJ 3",
+        label: "Super Saiajyn 3",
         backgroundColor: "#00FF00",
         borderColor: "rgb(255, 99, 132)",
         data: recebeBanco //  7 são da label, demais para graficos
       },
       {
-        label: "SSJ 2",
+        label: "Super Saiajyn 2",
         backgroundColor: "#00008B",
         borderColor: "rgb(255, 99, 132)",
         data: recebeBanco //  7 são da label, demais para graficos
       },
       {
-        label: "SSJ 1",
+        label: "Super Saiajyn 1",
         backgroundColor: "#FFFF00",
         borderColor: "rgb(255, 99, 132)",
         data: recebeBanco //  7 são da label, demais para graficos
@@ -96,13 +96,12 @@
 
 
 
-    fetch(`/medidas/ultimas/}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/usuarios/ranking/`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
-          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          resposta.reverse();
+          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          console.log(resposta);
 
-          plotarGrafico(resposta);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -124,25 +123,23 @@
   // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
   // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
   // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-  function plotarGrafico(formabase) {
-    console.log('iniciando plotagem do gráfico...');
+  // function plotarGrafico(dados, formabase) {
+  //   console.log('iniciando plotagem do gráfico...');
 
 
-    var dados = {
-      labels: [],
-      datasets: []
-    };
-  }
+  //   var dados = {
+  //     labels: [],
+  //     datasets: []
+  //   };
+  // }
 
-  console.log(JSON.stringify(dados));
-
-  var ctx = canvas_grafico.getContext('2d');
-  window.grafico_linha = Chart.Line(ctx, {
-    data: dados
-  })
+  // var ctx = canvas_grafico.getContext('2d');
+  // window.grafico_linha = Chart.Line(ctx, {
+  //   data: dados
+  // })
 </script>
 <script>
-  const myChart = new Chart(document.getElementById("myChart"), config);
+  // const myChart = new Chart(document.getElementById("myChart"), config);
 </script>
 
 </html>
