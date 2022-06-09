@@ -50,7 +50,7 @@
                 <h3>Quantas esferas do dragão são necessarias pra realizar 1 desejo ?</h3>
                 <button onclick="f1_8()">8</button>
                 <button onclick="f1_12()">12</button>
-                <button onclick="f1_7()">7</button>
+                <button id="certo1" onclick="f1_7()">7</button>
                 <button onclick="f1_10()">10</button>
             </div>
 
@@ -113,28 +113,32 @@
                 style="display: none; background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnbRtOjc38xTHPe4BxtjM4mwYYIq7bdRw2Aw&usqp=CAU');">
 
                 <h2>Forma Base</h2>
-                Seu poder está abaixo de 8Mil, continue treinando!
+                Seu poder está abaixo de 8Mil, continue treinando!<br>
+                Acerte pelo menos 2 na proxima para subir de nivel!!
             </div>
 
             <div id="ssj1"
                 style="display: none; background-image: url('https://sm.ign.com/ign_br/screenshot/default/goku-super-sayan_j3xm.jpg');">
 
                 <h2>SSJ1</h2>
-                Um(a) guerreiro(a) em potencial !!
+                Um(a) guerreiro(a) em potencial !! <br>
+                Acerte pelo menos 4 na proxima para subir de nivel!!
             </div>
 
             <div id="ssj2"
                 style="display: none; background-image: url('https://criticalhits.com.br/wp-content/uploads/2020/10/DBnQz1XUQAEAgdT.jpg');">
 
                 <h2>SSJ2</h2>
-                Muito Bom!! Seu poder é incrivel
+                Muito Bom!! Seu poder é incrivel<br>
+                Acerte pelo menos 6 na proxima para subir de nivel!!
             </div>
 
             <div id="ssj3"
                 style="display: none; background-image: url('https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/10/goku-super-saiyan-3.jpg?q=50&fit=contain&w=943&h=472&dpr=1.5');">
 
                 <h2>SSJ3</h2>
-                Um poder gigante, apenas os mais talentosos são capazes de chegar até aqui!!!
+                Um poder gigante, apenas os mais talentosos são capazes de chegar até aqui!!!<br>
+                Falta acertar uma a mais para se tornar o mais forte de todos!
             </div>
 
             <div id="ssj4"
@@ -156,11 +160,20 @@
 <script>
     var acertos = 0;
     var nome;
+    var campo;
+
     function confirmar() {
-        abertura.play();
+        var campo = nome_SJ.value;
+        
+        if (campo == '') {
+            alert(`É necessario inserir o seu nome antes de continuar`)
+        }else{
+            abertura.play();
         intro.style.display = 'none';
         fase1.style.display = 'block';
-        nome = nome_SJ.value;
+        nome = campo;
+        }
+        
     }
 
     // fase1
@@ -169,16 +182,20 @@
         fase2.style.display = 'block';
 
     }
+
     function f1_12() {
         fase1.style.display = 'none';
         fase2.style.display = 'block';
 
     }
+
     function f1_7() {
+        certo1.style.color == 'green';
         fase1.style.display = 'none';
         fase2.style.display = 'block';
         acertos++;
     }
+
     function f1_10() {
         fase1.style.display = 'none';
         fase2.style.display = 'block';
@@ -191,16 +208,19 @@
         fase3.style.display = 'block';
 
     }
+
     function f2_2() {
         fase2.style.display = 'none';
         fase3.style.display = 'block';
 
     }
+
     function f2_3() {
         fase2.style.display = 'none';
         fase3.style.display = 'block';
 
     }
+
     function f2_4() {
         fase2.style.display = 'none';
         fase3.style.display = 'block';
@@ -213,16 +233,19 @@
         fase4.style.display = 'block';
 
     }
+
     function f3_2() {
         fase3.style.display = 'none';
         fase4.style.display = 'block';
         acertos++;
     }
+
     function f3_3() {
         fase3.style.display = 'none';
         fase4.style.display = 'block';
 
     }
+
     function f3_4() {
         fase3.style.display = 'none';
         fase4.style.display = 'block';
@@ -235,16 +258,19 @@
         fase5.style.display = 'block';
 
     }
+
     function f4_2() {
         fase4.style.display = 'none';
         fase5.style.display = 'block';
 
     }
+
     function f4_3() {
         fase4.style.display = 'none';
         fase5.style.display = 'block';
 
     }
+
     function f4_4() {
         fase4.style.display = 'none';
         fase5.style.display = 'block';
@@ -257,16 +283,19 @@
         fase6.style.display = 'block';
         acertos++;
     }
+
     function f5_2() {
         fase5.style.display = 'none';
         fase6.style.display = 'block';
 
     }
+
     function f5_3() {
         fase5.style.display = 'none';
         fase6.style.display = 'block';
 
     }
+
     function f5_4() {
         fase5.style.display = 'none';
         fase6.style.display = 'block';
@@ -279,16 +308,19 @@
         fase7.style.display = 'block';
 
     }
+
     function f6_2() {
         fase6.style.display = 'none';
         fase7.style.display = 'block';
         acertos++;
     }
+
     function f6_3() {
         fase6.style.display = 'none';
         fase7.style.display = 'block';
 
     }
+
     function f6_4() {
         fase6.style.display = 'none';
         fase7.style.display = 'block';
@@ -300,19 +332,23 @@
         fase7.style.display = 'none';
         fim.style.display = 'block';
     }
+
     function f7_2() {
         fase7.style.display = 'none';
         fim.style.display = 'block';
     }
+
     function f7_3() {
         fase7.style.display = 'none';
         acertos++;
         fim.style.display = 'block';
     }
+
     function f7_4() {
         fase7.style.display = 'none';
         fim.style.display = 'block';
     }
+
     function resultado() {
         var n_base = acertos >= 0 && acertos <= 1;
         var n_ssj1 = acertos >= 2 && acertos <= 3;
@@ -321,27 +357,27 @@
         var n_ssj4 = acertos > 6;
 
         var rank = ''
-        if(n_base) {
+        if (n_base) {
             rank = 'Forma Base'
-        } else if (n_ssj1){
+        } else if (n_ssj1) {
             rank = 'SSJ1'
-        } else if (n_ssj2){
+        } else if (n_ssj2) {
             rank = 'SSJ2'
-        } else if (n_ssj3){
+        } else if (n_ssj3) {
             rank = 'SSJ3'
-        } else if (n_ssj4){
+        } else if (n_ssj4) {
             rank = 'SSJ4'
         }
 
-        fetch(`/usuarios/cadastrar/`, { 
-            method: 'POST', 
-            headers: { 
-                'Content-Type': 'application/json' 
-            },             
+        fetch(`/usuarios/cadastrar/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 nomeServer: nome,
                 acertosServer: rank
-            }) 
+            })
         }).then(function (response) {
             if (response.ok) {
                 response.json().then(json => {
@@ -351,28 +387,23 @@
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
         });
-        
+
         abertura.pause();
         if (n_base) {
             fim.style.display = 'none';
             base.style.display = 'block';
-        }
-        else if (n_ssj1) {
+        } else if (n_ssj1) {
             fim.style.display = 'none';
             ssj1.style.display = 'block';
-        }
-        else if (n_ssj2) {
+        } else if (n_ssj2) {
             fim.style.display = 'none';
             ssj2.style.display = 'block';
-        }
-        else if (n_ssj3) {
+        } else if (n_ssj3) {
             fim.style.display = 'none';
             ssj3.style.display = 'block';
-        }
-        else if (n_ssj4) {
+        } else if (n_ssj4) {
             fim.style.display = 'none';
             ssj4.style.display = 'block';
         }
     }
-
 </script>
