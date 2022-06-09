@@ -46,8 +46,6 @@
   const labels = ["Super Saiajyn 4", "Super Saiajyn 3", "Super Saiajyn 2", "Super Saiajyn", "Forma Base"];
   var recebeBanco = [];
 
-  obterDadosGrafico();
-
   const data = {
     labels: labels,
     datasets: [
@@ -96,12 +94,16 @@
 
 
 
-    fetch(`/usuarios/ranking/`, { cache: 'no-store' }).then(function (response) {
+    fetch('/usuarios/ranking', { cache: 'no-store', method: 'GET' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
-          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          console.log(resposta);
+          //pegando a pontuação de cada um dos objetos no vetor resposta
+          for (let index = 0; index < resposta.length; index++) {
+            // recebeBanco.push(resposta[index].pontuacao);
 
+            window.grafico_linha.update();
+            
+          }
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -112,11 +114,11 @@
       });
 
       
-      var n_base = acertos >= 0 && acertos <= 1;
-        var n_ssj1 = acertos >= 2 && acertos <= 3;
-        var n_ssj2 = acertos >= 4 && acertos <= 5;
-        var n_ssj3 = acertos >= 6 && acertos < 7;
-        var n_ssj4 = acertos > 6;
+      // var n_base = acertos >= 0 && acertos <= 1;
+      //   var n_ssj1 = acertos >= 2 && acertos <= 3;
+      //   var n_ssj2 = acertos >= 4 && acertos <= 5;
+      //   var n_ssj3 = acertos >= 6 && acertos < 7;
+      //   var n_ssj4 = acertos > 6;
 
   }
 
@@ -124,22 +126,26 @@
   // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
   // A função *plotarGrafico* também invoca a função *atualizarGrafico*
   // function plotarGrafico(dados, formabase) {
-  //   console.log('iniciando plotagem do gráfico...');
+   console.log('iniciando plotagem do gráfico...');
 
 
-  //   var dados = {
-  //     labels: [],
-  //     datasets: []
-  //   };
-  // }
+    var dados = {
+      labels: [],
+      datasets: []
+    };
+  
 
-  // var ctx = canvas_grafico.getContext('2d');
+  var ctx = canvas_grafico.getContext('2d');
   // window.grafico_linha = Chart.Line(ctx, {
   //   data: dados
   // })
+
+    window.grafico_linha = new Chart(ctx, config);
+
+    obterDadosGrafico();
 </script>
 <script>
-  // const myChart = new Chart(document.getElementById("myChart"), config);
+  //  const myChart = new Chart(document.getElementById("myChart"), config);
 </script>
 
 </html>

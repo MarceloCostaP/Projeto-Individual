@@ -21,6 +21,7 @@ router.post("/autenticar", function (req, res) {
 });
 
 router.get("/ranking", function (req, res) {
+    console.log('teste')
     usuarioController.dados_grafico(req, res);
 });
 
